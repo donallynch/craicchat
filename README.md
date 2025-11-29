@@ -19,7 +19,7 @@ Automated security audit runs after **every single deploy** and aborts if score 
 
 ### Landing page – live production (November 2025)
 
-<img src="https://i.imgur.com/PLACEHOLDER.png" alt="CraicChat landing page – live production" width="100%" style="max-width:1200px; border:1px solid #333; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+![CraicChat landing page – live production (November 2025)](craicchat.png)
 
 ### Current production security posture (automated audit – 2025-11-28)
 
