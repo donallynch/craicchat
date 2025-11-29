@@ -1,0 +1,14 @@
+CraicChat Production Security Posture – 2025-11-28
+Overall Holistic Bastion Score: 92/100 (Excellent)
+
+• Kernel lockdown = confidentiality (active)
+• Docker UserNS remapping on all 9 containers (no process ever real UID 0 on host)
+• No privileged containers, seccomp + AppArmor + no-new-privs enforced
+• CIS Level 2 / DISA STIG compliance: 100%
+• Fail2Ban: 16 custom jails, 614 IPs permanently banned (real traffic)
+• SSH: pubkey-only, root login disabled, rate-limited
+• AIDE daily integrity checks + USBGuard default-deny
+• Automated audit runs after every deploy – fails deployock if score < 90
+
+Full 150+ check output: security_audit_full.txt
+Live site: https://craicchat.com
