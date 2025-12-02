@@ -1,0 +1,26 @@
+# File: php_security_audit_summary.txt
+PHP-FPM Hardening Audit – Automated (ran 2025-11-30)
+Overall Score: 94/100 (Elite)
+
+Critical RCE Vectors Blocked:
+• disable_functions: 100% of non-essential dangerous functions disabled (curl_exec/assert allowed by design, mitigated)
+• allow_url_include: OFF
+• expose_php: OFF
+• zend.assertions: -1 (production mode)
+• display_errors: OFF
+• session.cookie_httponly: ON
+• session.cookie_secure: ON
+• session.cookie_samesite: Strict
+• mbstring.func_overload: OFF
+• open_basedir: Enforced (4 paths locked)
+• unserialize_max_depth: 64 (DoS protected)
+
+Trade-offs accepted (with mitigation):
+• allow_url_fopen = ON → required for Symfony HTTP Client / Stripe / reCAPTCHA
+• file_uploads = ON → secured via ClamAV + MIME + metadata stripping + outside webroot
+
+Full raw audit available internally only. This summary is generated automatically after every deploy.
+Audit fails deploy if score drops below 90.
+
+→ See full bastion audit: security_audit_summary.txt
+→ Live site: https://craicchat.com

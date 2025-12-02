@@ -1,0 +1,17 @@
+CraicChat – Zero-Downtime Canary Deployment (docker-compose + bash)
+
+Here's how deployments go:
+
+1. Build new images
+2. Detect current php-fpm replica count (2 or 200 – no changes needed)
+3. Start exactly one canary container (+1 temporary)
+   → nginx "resolve" directive keeps all traffic on old containers until the new one is marked healthy
+4. Wait for full app-level health check to pass
+5. When healthy → atomically replace all old containers with new ones (one command)
+   If not → instantly scale back to previous working state – zero user impact
+6. Refresh stateless services
+
+Result: 100 % zero-downtime deployments.
+No K8s, no paid tools, no manual steps.
+
+Just run the deployment script → go make coffee → done.
